@@ -1,0 +1,241 @@
+problem1:
+..................................................................................
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+ double num1,num2;
+ cout<<"Enter num1: "; cin>>num1;
+ cout<<"Enter num2: "; cin>>num2;
+ char charecter,press;
+ cout<<"Enter +,-,*,/,%: ";  cin>>charecter;
+    cout<<"Enter =: ";  cin>>press;
+
+ if(press=='='){
+  if(charecter=='+'){
+   cout<<num1<<"+"<<num2<<" = "<<num1+num2<<endl;
+  }
+  else if(charecter=='-'){
+   cout<<num1<<"-"<<num2<<" = "<<num1-num2<<endl;
+  }
+  else if(charecter=='*'){
+   cout<<num1<<"*"<<num2<<" = "<<num1*num2<<endl;
+  }
+  else if(charecter=='/'){
+   cout<<num1<<"/"<<num2<<" = "<<num1/num2<<endl;
+  }
+  else{
+   cout<<num1<<"%"<<num2<<" = "<<int(num1)%int(num2)<<endl;
+  }
+ }
+}
+
+
+
+
+problem 2:
+........................................................................................................................
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cout<<"Enter number: ";    cin>>n;
+    vector<double>vec(2*n);
+    int j = 2*n;
+    cout<<"Enter numbers: "<<endl;
+    for(int i=0; i<j; i++)
+        cin>>vec[i];
+    char ch;
+    cout<<"Enter operator: ";    cin>>ch;
+    if(ch == '+'){
+        for(int i=0; i<j; i+=2){
+            cout<<vec[i]<<" + "<<vec[i+1]<<" = "<<vec[i] + vec[i+1]<<endl;}}
+    if(ch == '-'){
+        for(int i=0; i<j; i+=2){
+            cout<<vec[i]<<" - "<<vec[i+1]<<" = "<<vec[i] - vec[i+1]<<endl;}}
+    if(ch == '*')    {
+        for(int i=0; i<j; i+=2)        {
+            cout<<vec[i]<<" * "<<vec[i+1]<<" = "<<vec[i] * vec[i+1]<<endl;}}
+    if(ch == '/')    {
+        for(int i=0; i<j; i+=2)        {
+            cout<<vec[i]<<" / "<<vec[i+1]<<" = "<<vec[i] / vec[i+1]<<endl;}}
+    return 0;
+}
+
+
+
+problem3:
+...........................................................................................................................
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string string1, string2, number1,number2;
+    int number;
+    char ch;
+    cout<<"Enter 's' for string checking or 'n' for number checking: ";    cin>>ch;
+    if(ch == 's'){
+        cout<<"Enter a word without space: ";        cin>>string1;
+        string2 = string1;
+        reverse(string2.begin(), string2.end());
+        if(string1 == string2){
+            cout<<"The given word is palindrome."<<endl;
+        }
+        else{
+            cout<<"The given word is not palindrome."<<endl;
+        }
+    }
+    if(ch == 'n'){
+        cout<<"Enter number without space: ";        cin>>number;
+        number1 = to_string(number);
+        number2 = number1;
+        reverse(number2.begin(), number2.end());
+        if(number1 == number2){
+            cout<<"The given number is palindrome."<<endl;
+        }
+        else{
+            cout<<"The given number is not palindrome."<<endl;
+        }
+    }
+    return 0;
+}
+
+
+
+
+problem5:
+.........................................................................................................................
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+int number;
+cout<<"Enter a number to find factorial: ";    cin>>number;
+long long int fact=1;
+int j=1;
+for(int i = number; i>0; i--)
+{
+cout<<"Factorial in iteration "<<j<<" is : "<<fact<<" * "<<i<<" = "<<fact<<endl;
+fact = fact * i;
+j +=1;
+}
+cout<<endl<<number<<"! = "<<fact<<endl;
+return 0;
+}
+
+
+
+problem6:
+.................................................................................................................................
+#include <bits/stdc++.h>
+using namespace std;
+
+void sum(vector<int>arr1){
+    int i = 0, sum=0;
+    do{
+        sum = sum + arr1[i];
+        i++;
+    }while(i<arr1.size());
+    cout<<"Sum : "<<sum;
+}
+void avg(vector<int>arr1){
+    int i = 0;
+    float sum =0;
+    do{
+        sum = sum + arr1[i];
+        i++;
+    }while(i<arr1.size());
+    cout<<"Average : "<<sum/arr1.size();
+}
+int main(){
+    int n;
+    cout<<"Enter array size: ";    cin>>n;
+    vector<int>arr(n);
+    cout<<"Enter array elements: ";
+    for(int i = 0; i<n; i++){cin>>arr[i];}
+    cout<<endl;
+    sum(arr);
+    cout<<endl;
+    avg(arr);
+    return 0;
+}
+
+/*vector is a template class in C++ from the Standard Template Library (STL) that represents a dynamic array. 
+Unlike regular arrays, vectors can change size dynamically as elements are added or removed.*/
+
+
+
+problem7:
+...................................................................................................................................................
+import java.io.*;
+
+public class lab7 {
+
+    public static void main(String[] args) {
+        DataInputStream inputStream=null;
+        // Example 1: ClassNotFoundException
+        try {
+            Class.forName("NonExistentClass");
+        } catch (ClassNotFoundException e) {
+            System.out.println("ClassNotFoundException occurred: " + e.getMessage());
+        }
+
+        // Example 2: EOFException
+        try {
+            inputStream = new DataInputStream(new FileInputStream("nonexistent.txt"));
+            
+            while (true) {
+                try {
+                    char c = (char)inputStream.readByte();
+                    System.out.print(c);
+                } catch (EOFException eof) {
+                    System.out.println("\nEnd of file reached.");
+                    break;
+                } catch (IOException ioe) {
+                    ioe.printStackTrace();
+                    break;
+                }
+            }
+        } catch (FileNotFoundException fnfe) {
+            System.out.println("File not found: nonexistent.txt");
+        } finally {
+            try {
+                inputStream.close();
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+        }
+    }
+}
+
+
+
+problem8:
+..........................................................................................................................................................
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+
+    int num1, num2;
+    int caseNumber = 1;
+
+    // Read pairs until end of file
+    while (cin >> num1 >> num2) {
+        int sum = num1 + num2;
+        int sub = num1 - num2;
+        int mul = num1 * num2;
+        int div = (num2 != 0) ? num1 / num2 : 0;  // Avoid division by zero
+
+        cout << "Case-" << caseNumber++ << ": "
+             << sum << " " << sub << " " << mul << " " << div << endl;
+    }
+
+    return 0;
+}
+
+
+
+
